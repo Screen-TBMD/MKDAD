@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقداد | صانع محتوى قصص وألعاب</title>
+    <meta name="description" content="الموقع الرسمي لـ مقداد، صانع محتوى قصص وألعاب على يوتيوب">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Orbitron:wght@500&display=swap');
+
+        :root {
+            --primary-color: #ff9800;
+            --primary-light: #ffc107;
+            --dark-bg: #111;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --text-secondary: #ccc;
+        }
+
+        * { box-sizing: border-box; margin:0; padding:0; }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(28,28,28,0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 18px 0;
+            border-bottom: 2px solid var(--primary-color);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+        }
+
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: white;
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            padding: 100px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content:"";
+            position:absolute;
+            top:0; left:0; width:100%; height:100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255,152,0,0.1) 0%, transparent 50%);
+            pointer-events:none;
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin: 0;
+            text-shadow: 0 0 10px rgba(255,152,0,0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px var(--primary-color); }
+            to { text-shadow: 0 0 15px var(--primary-light), 0 0 20px var(--primary-color);}
+        }
+
+        header p {
+            font-size: 1.3rem;
+            color: var(--primary-light);
+            margin-top: 15px;
+            max-width:700px;
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+        .social-icons {
+            margin-top:30px;
+            display:flex;
+            justify-content:center;
+            gap:25px;
+        }
+
+        .social-icons a {
+            color: var(--primary-color);
+            font-size:28px;
+            transition: all 0.3s ease;
+            display:inline-block;
+        }
+
+        .social-icons a:hover {
+            color:white;
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        .container {
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            margin:50px auto;
+            gap:30px;
+            max-width:1200px;
+            padding:0 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding:30px 25px;
+            border-radius:15px;
+            width:280px;
+            text-align:center;
+            cursor:pointer;
+            transition: all 0.3s ease;
+            position:relative;
+            overflow:hidden;
+            border:1px solid rgba(255,152,0,0.2);
+        }
+
+        .card::after {
+            content:"";
+            position:absolute;
+            top:0; left:0; width:100%; height:5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            transition: height 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-10px); box-shadow:0 10px 25px rgba(255,152,0,0.3); }
+        .card:hover::after { height:8px; }
+
+        .card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size:24px;
+            color: var(--primary-color);
+            margin-bottom:15px;
+            position:relative;
+            padding-bottom:10px;
+        }
+
+        .card h3::after {
+            content:"";
+            position:absolute;
+            bottom:0;
+            left:50%;
+            transform: translateX(-50%);
+            width:50px;
+            height:2px;
+            background-color: var(--primary-light);
+        }
+
+        .card p {
+            font-size:16px;
+            color: var(--text-secondary);
+            min-height:60px;
+        }
+
+        .card a {
+            display:inline-block;
+            margin-top:15px;
+            padding:10px 20px;
+            text-decoration:none;
+            color:white;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius:8px;
+            transition: all 0.3s ease;
+            font-weight:bold;
+            border:none;
+            box-shadow:0 4px 10px rgba(255,152,0,0.3);
+        }
+
+        .card a:hover {
+            transform: translateY(-2px);
+            box-shadow:0 6px 15px rgba(255,152,0,0.4);
+        }
+
+        .content-section {
+            background-color:#1c1c1c;
+            padding:40px;
+            margin:30px auto;
+            border-radius:15px;
+            width:90%;
+            max-width:1100px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.3);
+            border:1px solid rgba(255,152,0,0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity:0; transform:translateY(20px);}
+            to {opacity:1; transform:translateY(0);}
+        }
+
+        .content-section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size:32px;
+            color: var(--primary-color);
+            margin-bottom:25px;
+            text-align:center;
+            position:relative;
+        }
+
+        .content-section h2::after {
+            content:"";
+            position:absolute;
+            bottom:-10px;
+            left:50%;
+            transform: translateX(-50%);
+            width:100px;
+            height:3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            border-radius:3px;
+        }
+
+        .content-section p {
+            font-size:18px;
+            margin-bottom:20px;
+            text-align:justify;
+            line-height:1.8;
+        }
+
+        .content-section a {
+            color: var(--primary-light);
+            text-decoration:none;
+            transition: color 0.3s;
+        }
+
+        .content-section a:hover {
+            color:white;
+            text-decoration: underline;
+        }
+
+        .art-gallery {
+            display:grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap:25px;
+            margin-top:30px;
+        }
+
+        .art-item {
+            background-color:#222;
+            border-radius:10px;
+            overflow:hidden;
+            text-align:center;
+            transition: all 0.3s ease;
+            cursor:pointer;
+            position:relative;
+            box-shadow:0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .art-item::before {
+            content:"";
+            position:absolute;
+            top:0; left:0;
+            width:100%; height:100%;
+            background: linear-gradient(to bottom, rgba(255,152,0,0.1), rgba(255,152,0,0.3));
+            opacity:0;
+            transition: opacity 0.3s;
+        }
+
+        .art-item:hover { transform:translateY(-10px); box-shadow:0 15px 30px rgba(255,193,7,0.4);}
+        .art-item:hover::before { opacity:1; }
+        .art-item img {
+            width:100%;
+            height:200px;
+            object-fit:cover;
+            display:block;
+            transition: transform 0.5s;
+        }
+        .art-item:hover img { transform:scale(1.05);}
+        .art-item p { margin:15px; color: var(--primary-light); font-weight:bold; font-size:16px;}
+
+        #lightbox {
+            position: fixed;
+            display: none;
+            top:0; left:0;
+            width:100%; height:100%;
+            background: rgba(0,0,0,0.95);
+            justify-content:center;
+            align-items:center;
+            z-index:1000;
+            cursor: zoom-out;
+        }
+
+        #lightbox-content { position:relative; max-width:90%; max-height:90%; text-align:center; }
+        #lightbox img { max-width:100%; max-height:80vh; border-radius:10px; box-shadow:0 0 30px rgba(255,152,0,0.5);}
+        #lightbox-caption { color:white; margin-top:15px; font-size:18px; }
+        #close-lightbox { position:absolute; top:-40px; right:-10px; color:white; font-size:30px; cursor:pointer; transition:transform 0.3s; }
+        #close-lightbox:hover { transform:rotate(90deg); }
+
+        @media (max-width:768px) { header h1 { font-size:2.5rem; } header p { font-size:1.1rem; } nav { gap:15px; padding:15px 0; } nav a { font-size:16px; } .card { width:100%; max-width:350px;} .content-section { padding:25px; } .art-gallery { grid-template-columns:1fr; } }
+        @media (max-width:480px) { header h1 { font-size:2rem;} nav { flex-direction:column; gap:10px; align-items:center; padding:10px 0; } .social-icons { gap:20px;} .content-section { padding:20px; width:95%;} }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#bio" onclick="showSection('bio')">بطاقة تعريف</a>
+    <a href="#best" onclick="showSection('best')">أفضل الأعمال</a>
+    <a href="#art" onclick="showSection('art')">أعمال فنية</a>
+</nav>
+
+<header>
+    <h1>مرحباً، أنا مقداد</h1>
+    <p>مهتم بصناعة فيديوهات قصص وألعاب على يوتيوب، أشارك محتوى ممتع وشيق للجمهور العربي.</p>
+    <h1>Just a dreamer</h1>
+    <div class="social-icons">
+        <a href="https://youtube.com/channel/UCqOfeCbSlg69ylz18aB9aeg" target="_blank" title="قناة اليوتيوب"><i class="fab fa-youtube"></i></a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="card" onclick="showSection('bio')">
+        <h3>بطاقة تعريف</h3>
+        <p>تعرف على مقداد وصناعة فيديوهات القصص والألعاب.</p>
+        <a onclick="event.stopPropagation()" href="#bio">المزيد</a>
+    </div>
+    <div class="card" onclick="showSection('best')">
+        <h3>أفضل الأعمال</h3>
+        <p>مشاريع مميزة ومحتوى ناجح على القناة.</p>
+        <a onclick="event.stopPropagation()" href="#best">المزيد</a>
+    </div>
+    <div class="card" onclick="showSection('art')">
+        <h3>أعمال فنية</h3>
+        <p>معرض أعمالي الفنية مع الوصف التفصيلي لكل صورة.</p>
+        <a onclick="event.stopPropagation()" href="#art">المزيد</a>
+    </div>
+</div>
+
+<!-- Sections -->
+<div id="bio" class="content-section">
+    <h2>بطاقة تعريف</h2>
+    <p>أنا مقداد، مهتم بصناعة فيديوهات قصص وألعاب على يوتيوب. أشارك محتوى ممتع ومفيد للجمهور العربي، وأسعى لتطوير مهاراتي في التصميم والمونتاج والإبداع.</p>
+</div>
+
+<div id="best" class="content-section">
+    <h2>أفضل الأعمال</h2>
+    <div class="best-works">
+        <div class="work-item">
+            <h3><i class="fas fa-video" style="color: var(--primary-light); margin-left: 10px;"></i> سلسلة قصص وألعاب</h3>
+            <p>سلسلة فيديوهات قصيرة وممتعة تحكي قصصاً مبتكرة وعالم الألعاب بأسلوب شيق وجذاب.</p>
+        </div>
+        <div class="work-item">
+            <h3><i class="fas fa-lightbulb" style="color: var(--primary-light); margin-left: 10px;"></i> أفكار إبداعية</h3>
+            <p>مشاريع تقنية وفنية يمكن تنفيذها بسهولة، مع تقديم أفكار جديدة ومبتكرة لمحتوى القناة.</p>
+        </div>
+    </div>
+</div>
+
+<div id="art" class="content-section">
+    <h2>أعمال فنية</h2>
+    <div class="art-gallery">
+        <div class="art-item" onclick="openLightbox('https://raw.githubusercontent.com/Screen-TBMD/MKDAD/refs/heads/main/New_Element_1_363B243.png','هذه تعتبر اول رسمة (او تعديل على رسمة)، تم رسمها على تطبيق flipaclip، و هي تعتبر الجوهر الاساسي للشخصية الايقونية للقناة و بشكل عام')">
+            <img src="https://raw.githubusercontent.com/Screen-TBMD/MKDAD/refs/heads/main/New_Element_1_363B243.png" alt="Artwork 1">
+            <p>أول رسمة على Flipaclip - الجوهر الأساسي للشخصية الأيقونية</p>
+        </div>
+        <div class="art-item" onclick="openLightbox('https://raw.githubusercontent.com/Screen-TBMD/MKDAD/refs/heads/main/Untitled22_Restored_20241109175002.png','هذه تعتبر ثاني شخصية ارسمها، و تلك اول مرة استخدم تطبيق جديد باسم ibis paint، كانت الرسمة بهدف استخدامها على شكل شخصية بدل من استخدام شخصية القديمة و التي لم تكن في المستوى المطلوب، لكن في تلك المرحلة لم اكن املك الخبرة الكافية في عالم الرسم، لكن تعتبر ايضا ورث خصوصا تلك البقعة البرتقالية الداكنة قليلا، و في وقت قريب اصبحت رمز القناة في فترة زمنية')">
+            <img src="https://raw.githubusercontent.com/Screen-TBMD/MKDAD/refs/heads/main/Untitled22_Restored_20241109175002.png" alt="Artwork 2">
+            <p>ثاني شخصية على ibis Paint - بداية تطوير الشخصية</p>
+        </div>
+        <div class="art-item" onclick="openLightbox('https://raw.githubusercontent.com/Screen-TBMD/MKDAD/refs/heads/main/Untitled11_20240627001139.png','')">
+            <img src="https://raw.githubusercontent.com/Screen-TBMD/MKDAD/refs/heads/main/Untitled11_20240627001139.png" alt="Artwork 3">
+            <p>الشخصية الايقونية للقناة، هذه تعتبر من افضل الشخصيات في فترة عملي على القناة، تعتبر نسخة محسنة من الشخصية التي رسمتها، و التي كانت من عند صديق قديم ساعدني، و من تلك اللحظة كانت سبب الرئيسي في الوصول الى هذه المرحلة</p>
+        </div>
+        <div class="art-item" onclick="openLightbox('https://raw.githubusercontent.com/Screen-TBMD/MKDAD/refs/heads/main/Untitled34_20241120011621.png','')">
+            <img src="https://raw.githubusercontent.com/Screen-TBMD/MKDAD/refs/heads/main/Untitled34_20241120011621.png" alt="Artwork 4">
+            <p>رسمة إضافية</p>
+        </div>
+        <div class="art-item" onclick="openLightbox('https://raw.githubusercontent.com/Screen-TBMD/MKDAD/refs/heads/main/Untitled25_20241205150912.png','')">
+            <img src="https://raw.githubusercontent.com/Screen-TBMD/MKDAD/refs/heads/main/Untitled25_20241205150912.png" alt="Artwork 5">
+            <p>رسمة حديثة</p>
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox">
+    <div id="lightbox-content">
+        <span id="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <<img id="lightbox-img" src="" alt="Artwork">
+        <div id="lightbox-caption"></div>
+    </div>
+</div>
+
+<script>
+    function showSection(id) {
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(sec => {
+            if(sec.id === id) {
+                sec.scrollIntoView({behavior: "smooth"});
+            }
+        });
+    }
+
+    function openLightbox(imgSrc, caption) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        lightbox.style.display = 'flex';
+        lightboxImg.src = imgSrc;
+        lightboxCaption.textContent = caption;
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.style.display = 'none';
+        document.getElementById('lightbox-img').src = '';
+        document.getElementById('lightbox-caption').textContent = '';
+    }
+
+    // إغلاق الـ Lightbox عند الضغط على ESC
+    document.addEventListener('keydown', function(e) {
+        if(e.key === "Escape") {
+            closeLightbox();
+        }
+    });
+
+    // إغلاق الـ Lightbox عند الضغط في أي مكان خارجه
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+        if(e.target === this) {
+            closeLightbox();
+        }
+    });
+</script>
+
+</body>
+</html>
